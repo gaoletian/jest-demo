@@ -1,0 +1,38 @@
+{
+  "name": "jest-test-demo",
+  "version": "1.0.0",
+  "description": "## javascript语言基础",
+  "main": "lodash.js",
+  "scripts": {
+    "clean:sdk": "rm -rf node_modules/NirvanaNodeSdk",
+    "build:sdk": "npm run clean:sdk && ./node_modules/.bin/babel src/NirvanaNodeSdk --out-dir node_modules/NirvanaNodeSdk",
+    "ln": "cd node_modules && ln -nsf ../src/NirvanaNodeSdk && cd ..",
+    "jest": "jest --coverage --env node --verbose",
+    "test": "npm run build:sdk && npm run jest && npm run clean:sdk",
+    "local": "npm run ln && nodemon --exec babel-node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaoletian/nodejs-awesome.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaoletian/nodejs-awesome/issues"
+  },
+  "homepage": "https://github.com/gaoletian/nodejs-awesome#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-jest": "^19.0.0",
+    "babel-preset-es2015": "^6.24.0",
+    "jest": "^19.0.2",
+    "jest-cli": "^19.0.2",
+    "regenerator-runtime": "^0.10.3"
+  },
+  "dependencies": {
+    "node-fetch": "^1.6.3",
+    "nodemon": "^1.11.0"
+  }
+}
