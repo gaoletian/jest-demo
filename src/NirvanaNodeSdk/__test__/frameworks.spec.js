@@ -9,7 +9,7 @@ import CoreService from '../kernel/service'
  */
 describe('es6 import test', () => {
 
-  let allImport = {Provider, Message, ReplyResult, CoreService}
+  let allImport = {Provider, Message, ReplyResult, CoreService, Model}
 
   Object.keys(allImport).forEach(item => {
     it(`import ${item}`, () => {
