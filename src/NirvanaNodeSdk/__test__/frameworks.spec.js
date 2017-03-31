@@ -7,7 +7,7 @@ import Sequelize from 'sequelize'
  * 数据库连接
  */
 
-global.__seq = new Sequelize('nirvana', 'root', 'g3619323',{
+global.__seq = new Sequelize('nirvana', 'root', 'Gg3619323',{
   host: 'localhost',
   dialect: 'mysql',
   pool: {

@@ -24,7 +24,7 @@ export async function addUser (param) {
 
 
     /** 数据库操作 **/
-    result = await Model.user.findOne({where: {id: userId}})
+    result = await Model.user.findAll()
 
     if (!result) {
       // 根据具体情况设置消息内容
