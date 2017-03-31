@@ -2,7 +2,20 @@ import {Message, ReplyResult} from '../common'
 import Model from '../kernel/model'
 import * as Provider from '../provider'
 import CoreService from '../kernel/service'
+import Sequelize from 'sequelize'
+/**
+ * 数据库连接
+ */
 
+global.__seq = new Sequelize('nirvana', 'root', 'g3619323',{
+  host: 'localhost',
+  dialect: 'mysql',
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+})
 
 /**
  * 静态导入测试
