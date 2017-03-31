@@ -8,6 +8,7 @@
  * @returns {{code: number, message: string, result: *}}
  * @constructor
  */
+const merge = require('lodash/merge')
 export function ReplyResult (message, result = {}) {
-  return Object.assign({}, message, {result})
+  return merge({}, message, {result})
 }

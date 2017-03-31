@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "joi": "^10.3.3",
     "lodash": "^4.17.4",
     "mysql": "^2.13.0",
     "node-fetch": "^1.6.3",
