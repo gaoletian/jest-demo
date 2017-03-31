@@ -1,6 +1,9 @@
 import model from '../../kernel/model'
 import provider from '../../provider'
-import bluebird from 'bluebird'
+
+import Model from 'NirvanaNodeSdk/kernel/model'
+import * as Provider from 'NirvanaNodeSdk/provider'
+
 /**
  * 静态导入测试
  */
@@ -56,3 +59,7 @@ describe(`"provider.jiea" all method should contain { code, message, result}`, a
     })
   })
 })
+
+
+
+
