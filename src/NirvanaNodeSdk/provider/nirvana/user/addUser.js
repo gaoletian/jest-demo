@@ -1,7 +1,7 @@
 import {Message, ReplyResult} from 'NirvanaNodeSdk/common'
 import Model from 'NirvanaNodeSdk/kernel/model'
 import Joi from 'joi'
-const debug = console.log
+const debug = (...args) => console.log('--->', ...args)
 /**
  * 函数注释参考：
  * https://esdoc.org/manual/usage/tags.html
@@ -24,11 +24,13 @@ export async function addUser (param = {}) {
     // todo 参数校验
 
     let res = Joi.validate(param, Joi.object({
-      mobile: Joi.string().required()
+      mobile: Joi.string().required(),
+      name: Joi.string()
     }))
 
-    if(res.error) {
-      message = Message.ErrorParam
+    if (res && res.error) {
+      debug(res.error.details[0].message)
+      message = Message.ParamError
       return ReplyResult(message)
     }
 
@@ -43,7 +45,7 @@ export async function addUser (param = {}) {
     return ReplyResult(message, result.dataValues)
 
   } catch (err) {
-    message = Message.UnKnowError
+    message = Message.UnKnownError
     return ReplyResult(message, err)
   }
 }

@@ -23,14 +23,20 @@ global.__seq = new Sequelize('nirvana', 'root', 'Gg3619323', {
 
 async function start () {
   try {
-    let res = await provider.nirvana.user.addUser()
+    let res
+    res = await provider.nirvana.user.addUser()
     L('<===', res)
+
+    res = await provider.nirvana.user.addUser({mobile: '13522287687', sex: 1})
+    L('<===', res)
+
+
+    res = await provider.nirvana.user.addUser({mobile: '13522287687', sex: 0, name: 'gaoletian'})
+    L('===>', res)
   } catch (err) {
     L(err)
   }
 
 }
 
-(async function () {
-  await start()
-})()
+start()
