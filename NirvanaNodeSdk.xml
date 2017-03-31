@@ -1,0 +1,50 @@
+<templateSet group="NirvanaNodeSdk">
+  <template name="new-controller" value="controller" description="创建一个控制器" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JSX_HTML" value="false" />
+    </context>
+  </template>
+  <template name="new-provider-model" value="import {Message, ReplyResult} from 'NirvanaNodeSdk/common'&#10;import Model from 'NirvanaNodeSdk/kernel/model'&#10;&#10;/**&#10; * 函数注释参考：&#10; * https://esdoc.org/manual/usage/tags.html&#10; * 参数类型: {number}, {string}, {Object}, {{foo: number, bar: string}},&#10; * https://esdoc.org/manual/usage/tags.html#type-syntax&#10; */&#10;&#10;/**&#10; * todo 函数作用描述&#10; * @param {*} param - 参数描述&#10; * @returns {Promise.&lt;ReplyResult&gt;} - 返回结果说明&#10; * @example &lt;caption&gt;示例代码标题&lt;/caption&gt;&#10; * &#10; * await $ProviderName$(param)&#10; * &#10; */&#10;export async function $ProviderName$ (param) {&#10;  let message = Message.Success, result = null&#10;  try {&#10;    // todo 参数校验&#10;    $END$&#10;&#10;    /** 数据库操作 **/&#10;    result = await Model.user.findOne({where: {id: userId}})&#10;&#10;    if (!result) {&#10;      // 根据具体情况设置消息内容&#10;      message = Message.NoResult&#10;      return ReplyResult(message)&#10;    }&#10;    // 正常返回&#10;    return ReplyResult(message, result)&#10;&#10;  } catch (err) {&#10;    message = Message.UnKnowError&#10;    return ReplyResult(message, err)&#10;  }&#10;}" description="新建 provider 并引入 model" toReformat="true" toShortenFQNames="true">
+    <variable name="ProviderName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="import-provider" value="import * as Provider from 'NirvanaNodeSdk/provider'" description="导入provider" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="import-model" value="import Model from 'NirvanaNodeSdk/kernel/model'" description="导入model" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="import-utils" value="import * as utils from 'NirvanaNodeSdk/utils'" shortcut="TAB" description="导入utils" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="import-message-replyResult" value="import {Message, ReplyResult} from 'NirvanaNodeSdk/common'" shortcut="TAB" description="导入Message和ReplyResult" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="import-all" value="import {Message, ReplyResult} from 'NirvanaNodeSdk/common'&#10;import Model from 'NirvanaNodeSdk/kernel/model'&#10;import CoreService from 'NirvanaNodeSdk/kernel/service'&#10;import * as Utils from 'NirvanaNodeSdk/utils'" description="导入 Message, ReplyResult, Model, CoreService" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="new-provider-coreservice" value="import {Message, ReplyResult} from 'NirvanaNodeSdk/common'&#10;import coreService from 'NirvanaNodeSdk/kernel/service'&#10;&#10;/**&#10; * 函数注释参考：&#10; * https://esdoc.org/manual/usage/tags.html&#10; * 参数类型: {number}, {string}, {Object}, {{foo: number, bar: string}},&#10; * https://esdoc.org/manual/usage/tags.html#type-syntax&#10; */&#10;&#10;/**&#10; * todo 函数作用描述&#10; * @param {*} param - 参数说明&#10; * @returns {Promise.&lt;ReplyResult&gt;} param - 返回结果说明&#10; * @example &lt;caption&gt;示例代码标题&lt;/caption&gt;&#10; * &#10; * await $ProviderName$(param)&#10; * &#10; */&#10;export async function $ProviderName$ (param) {&#10;&#10;  let message = Message.Success, result = null&#10;&#10;  try {&#10;&#10;    // todo 参数校验&#10;    $END$&#10;&#10;    /** 微服务调用 **/&#10;    result = await coreService.assertService.methodName()&#10;&#10;    // 验证返回的结果 请根据具体情况修改判断逻辑&#10;    if (!result || result.code !== 1 || result.code !== '00000') {&#10;      // 根据具体情况设置消息内容&#10;      message = Message.NoResult&#10;      return ReplyResult(message)&#10;    }&#10;&#10;    // 正常返回&#10;    return ReplyResult(message, result)&#10;&#10;  } catch (err) {&#10;    message = Message.UnKnowError&#10;    return ReplyResult(message, err)&#10;  }&#10;}" description="新建 provider 并引入 coreService" toReformat="true" toShortenFQNames="true">
+    <variable name="ProviderName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="import-coreservice" value="import CoreService from 'NirvanaNodeSdk/kernel/service'" description="导入 coreService" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>
